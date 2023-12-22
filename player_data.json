@@ -1,0 +1,32 @@
+[
+    {
+        "name": "nat",
+        "team_name": "nat",
+        "email_address": "nat",
+        "phone_number": "nat"
+    },
+    {
+        "name": "nathan",
+        "team_name": "nathan",
+        "email_address": "nathanm",
+        "phone_number": "nbath"
+    },
+    {
+        "name": "1",
+        "team_name": "1",
+        "email_address": "1",
+        "phone_number": "1"
+    },
+    {
+        "name": "Nathan",
+        "team_name": "Sluggers",
+        "email_address": "nathan@gmail.com",
+        "phone_number": "12312312312"
+    },
+    {
+        "name": "Smith",
+        "team_name": "Farts",
+        "email_address": "smith@fart.gov",
+        "phone_number": "1231231212"
+    }
+]
