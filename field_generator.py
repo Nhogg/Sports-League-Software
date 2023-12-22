@@ -1,6 +1,7 @@
 import random
 import string
 import json
+from pymongo_get_database import get_database
 
 
 class CreateUser:
@@ -85,6 +86,7 @@ def update_json(data, new_entry, filename):
 
 
 if __name__ == "__main__":
+    dbname = get_database()
     print("Choose an option:")
     print("1. Create a Player")
     print("2. Create a Coach")
@@ -100,6 +102,8 @@ if __name__ == "__main__":
         player_data = user1.create_player(name, team_name, email_address, phone_number)
         existing_data = read_json('player_data.json')
         update_json(existing_data, player_data, 'player_data.json')
+        collection_name = dbname["Players"]
+        collection_name.insert_one(player_data)
 
     elif choice == "2":
         name = input("Enter coach's name: ")
@@ -110,6 +114,8 @@ if __name__ == "__main__":
         coach_data = user1.create_coach(name, team_name, email_address, phone_number)
         existing_data = read_json('coach_data.json')
         update_json(existing_data, coach_data, 'coach_data.json')
+        collection_name = dbname["Coaches"]
+        collection_name.insert_one(coach_data)
 
     elif choice == "3":
         team_name = input("Enter team name: ")
@@ -120,6 +126,9 @@ if __name__ == "__main__":
         team_data = team1.createTeam(coach_name, member_count, league)
         existing_data = read_json('team_data.json')
         update_json(existing_data, team_data, 'team_data.json')
+        collection_name = dbname["Teams"]
+        collection_name.insert_one(team_data)
+
 
     else:
         print("Invalid choice. Please enter 1, 2, or 3.")
