@@ -19,5 +19,19 @@
         "email_address": "boss@sluggers.net",
         "phone_number": "1231231212",
         "coach_key": "Boss2898"
+    },
+    {
+        "name": "natewillrate",
+        "team_name": null,
+        "email_address": "nathanhogg1223@gmail.com",
+        "phone_number": "2342342323",
+        "coach_key": "natewillrate2305"
+    },
+    {
+        "name": "",
+        "team_name": null,
+        "email_address": "",
+        "phone_number": "",
+        "coach_key": "5833"
     }
 ]
