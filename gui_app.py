@@ -1,5 +1,7 @@
+#Install all packages and this should work, if not let me know
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import ttk
 import json
 import random
 import string
@@ -45,9 +47,8 @@ class CreateUser:
         }
 
 
-# (Your CreateTeam class remains unchanged)
-
 class App:
+
     def __init__(self, master):
         self.master = master
         self.master.title("User Management")
@@ -114,8 +115,8 @@ class App:
         username = self.login_username.get()
         password = self.login_password.get()
 
-        # Add your authentication logic here
-        # ...
+        # Add  authentication logic here
+
 
         messagebox.showinfo("Login", "Login Successful!\nUsername: {}\nPassword: {}".format(username, password))
 
@@ -139,7 +140,7 @@ class App:
         user1 = CreateUser(username, "Player", None, None, email, phone)
         player_data = user1.create_player(username, None, email, phone)
 
-        # Update JSON and MongoDB (adjust paths and database names accordingly)
+        # Update JSON and MongoDB
         existing_data = read_json('player_data.json')
         update_json(existing_data, player_data, 'player_data.json')
 
@@ -148,7 +149,7 @@ class App:
         collection_name = dbname["Players"]
         collection_name.insert_one(player_data)
 
-        # Show a success message (you can customize this as needed)
+        # Show a success message
         messagebox.showinfo("Player Created", "Player '{}' created successfully.".format(username))
 
     def create_coach(self):
@@ -168,7 +169,7 @@ class App:
         user1 = CreateUser(username, "Coach", None, None, email, phone)
         coach_data = user1.create_coach(username, None, email, phone)
 
-        # Update JSON and MongoDB (adjust paths and database names accordingly)
+        # Update JSON and MongoDB
         existing_data = read_json('coach_data.json')
         update_json(existing_data, coach_data, 'coach_data.json')
 
@@ -222,7 +223,7 @@ class App:
         coach_name = self.create_username.get()  # Assuming the coach's username is the coach name
         league = self.create_league.get()
 
-        # Validate the input (you may need more validation based on your requirements)
+        # Validate the input
         if not team_name or not location or not num_members:
             messagebox.showerror("Error", "Please fill in all fields.")
             return
@@ -231,7 +232,7 @@ class App:
         team1 = self.create_team(team_name, coach_name, num_members, league)
         team_data = team1.createTeam(coach_name, num_members, league)
 
-        # Update JSON and MongoDB (adjust paths and database names accordingly)
+        # Update JSON and MongoDB
         existing_data = read_json('team_data.json')
         update_json(existing_data, team_data, 'team_data.json')
 
